@@ -1,0 +1,7052 @@
+status: 200
+content-type: text/html;charset=ISO-8859-1
+-content-encoding: gzip
+server: Apache/2.4.6 (Red Hat Enterprise Linux) OpenSSL/1.0.1e-fips mod_fcgid/2.3.9 PHP/5.4.16 mod_cluster/1.3.1.Final
+set-cookie: JSESSIONID=8SrrBD3qzha+2PhM7SNKYuZv.2dd67fdc-79bf-38da-b441-3ab74fd999bf; Path=/siope
+content-location: https://www.fnde.gov.br/siope/dadosInformadosMunicipio.do?acao=pesquisar&pag=result&anos=2015&periodos=1&cod_uf=22&municipios=220192&admin=3&planilhas=124&descricaoItem=Consolidado+de+Receita&descricaodoItem=&nivel=
+x-powered-by: JSP/2.2
+content-language: pt-BR
+date: Fri, 08 Jun 2018 00:19:09 GMT
+vary: Accept-Encoding
+content-length: 174213
+-varied-accept-encoding: gzip, deflate
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- InstanceBegin template="/Templates/report_template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>SIOPE</title>
+<!-- InstanceEndEditable -->
+<meta http-equiv="Content-Language" content="English" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<script type="text/javascript">
+    var pkPageLoadStart = new Date();
+</script>
+</head>
+<body>
+
+<div id="wrap"><script type="text/javascript">
+var UA = navigator.userAgent;
+var css = "";
+if (UA.indexOf('MSIE') > -1) {
+	css = '<link rel="stylesheet" type="text/css" href="styleImpressao.css" media="print"/>';
+}
+// else if (UA.indexOf('Firefox') > -1) {}
+document.write(css);
+</script>
+<!-- <link href="http://www.fnde.gov.br/static/css/barraGov.css" rel="stylesheet" type="text/css" /> -->
+
+
+<!--  Retirado em 01/03/2011
+<div id="gov">
+<table width="100%" border="0px" cellpadding="0px" cellspacing="0" bgcolor="#FFCC00"> 
+<tr> 
+		<td>
+			<div id="barraGov">
+            <a href="http://portal.mec.gov.br" target="_blank">
+               <img id="barraGovEsquerda" src="http://www.fnde.gov.br/static/images/barraGov/cantoEsquerdo.png" alt="Educa&ccedil;&atilde;o - Minist&eacute;rio da Educa&ccedil;&atilde;o" /></a>
+               <img id="barraGovDireita" src="http://www.fnde.gov.br/static/images/barraGov/cantoDireito.png" alt="canto" />
+           </div>
+		</td>	
+</tr> 
+</table>
+</div>
+-->
+
+<div id="report_header_cabecalho">
+	<table>
+		<tr> 
+			<td width="80%"><a href="http://www.fnde.gov.br/home/" target="_blank"><img src="images/logomarca_fnde.gif" border="0"></a></td> 
+			<td align="right" ><a href="/siope"> <img src="images/logomarca_siope.gif" border="0"></a> </td> 
+		</tr> 
+	</table>
+</div>
+
+
+<div id="frame"><!-- InstanceBeginEditable name="ContentRegion" -->
+<script type="text/javascript" language="JavaScript1.2">
+function submitForm(){
+
+	 document.formDados.acao.value = "pesquisar";
+	 
+	if (document.getElementById("planilhas").selectedIndex == 0 ) {
+		  document.formDados.descricaoItem.value = document.formDados.planilhas.options[document.formDados.planilhas.selectedIndex].text.replace( /^\s+/g, "" );
+		 // document.formDados.nivel.value = document
+	}else{
+       document.formDados.descricaoItem.value = document.formDados.planilhas.options[document.formDados.planilhas.selectedIndex].text.replace( /^\s+/g, "" );
+ 	   document.formDados.descricaodoItem.value = document.formDados.planilhas.options[document.formDados.planilhas.selectedIndex-1].text.replace( /^\s+/g, "" );
+ 	  }
+       
+       
+	 if(document.formDados.planilhas.value != '')
+	     document.formDados.submit();
+  	 else
+		alert("Item Selecionado n\u00E3o possui Planilha de Dados");
+	    
+}
+
+function atualizarAno(){
+	 document.formDados.target= "_self";
+	 document.formDados.acao.value = "atualizar";
+     document.formDados.periodos.options[document.formDados.periodos.selectedIndex].value = -1;	 
+	 document.formDados.submit();
+}
+
+function atualizarPeriodo(){
+	 document.formDados.target= "_self";
+	 document.formDados.acao.value = "atualizar";
+	 document.formDados.submit();
+}
+</script> 
+
+
+
+<h1>Dados Informados pelos Munic&iacute;pios</h1>
+
+<br />
+
+<div align="center">
+
+<form name="formDados" action="dadosInformadosMunicipio.do" method="get">
+<input name="acao" type="hidden" id="acao" value=""/>
+<input name="pag" type="hidden" id="pag" value="result"/>
+
+<table class="searchPanel">
+	<tr>
+		<th><label>Ano:</label>&nbsp;</th>
+		<td><select onChange="atualizarAno()" name="anos">
+			
+				
+					<option value='2018'
+						>2018
+					</option>
+				
+					<option value='2017'
+						>2017
+					</option>
+				
+					<option value='2016'
+						>2016
+					</option>
+				
+					<option value='2015'
+						selected>2015
+					</option>
+				
+					<option value='2014'
+						>2014
+					</option>
+				
+					<option value='2013'
+						>2013
+					</option>
+				
+					<option value='2012'
+						>2012
+					</option>
+				
+					<option value='2011'
+						>2011
+					</option>
+				
+					<option value='2010'
+						>2010
+					</option>
+				
+					<option value='2009'
+						>2009
+					</option>
+				
+					<option value='2008'
+						>2008
+					</option>
+				
+					<option value='2007'
+						>2007
+					</option>
+				
+					<option value='2006'
+						>2006
+					</option>
+				
+					<option value='2005'
+						>2005
+					</option>
+				
+			
+		</select></td>
+	</tr>
+	<tr>
+		<th><label>Per&iacute;odo:</label>&nbsp;</th>
+		<td><select onChange="atualizarPeriodo()" name="periodos">
+			
+				
+					<option value='1'
+						selected
+            
+          >Anual</option>
+				
+			
+		</select></td>
+	</tr>
+	<tr>
+		<th><label>UF:</label>&nbsp;</th>
+		<td><select onChange="document.formDados.submit()" name="cod_uf">
+			
+				
+					<option value='12'
+						>Acre</option>
+				
+					<option value='27'
+						>Alagoas</option>
+				
+					<option value='16'
+						>Amapa</option>
+				
+					<option value='13'
+						>Amazonas</option>
+				
+					<option value='29'
+						>Bahia</option>
+				
+					<option value='23'
+						>Ceara</option>
+				
+					<option value='53'
+						>Distrito Federal</option>
+				
+					<option value='32'
+						>Espirito Santo</option>
+				
+					<option value='52'
+						>Goias</option>
+				
+					<option value='21'
+						>Maranhao</option>
+				
+					<option value='51'
+						>Mato Grosso</option>
+				
+					<option value='50'
+						>Mato Grosso do Sul</option>
+				
+					<option value='31'
+						>Minas Gerais</option>
+				
+					<option value='15'
+						>Para</option>
+				
+					<option value='25'
+						>Paraiba</option>
+				
+					<option value='41'
+						>Parana</option>
+				
+					<option value='26'
+						>Pernambuco</option>
+				
+					<option value='22'
+						selected
+            
+          >Piaui</option>
+				
+					<option value='33'
+						>Rio de Janeiro</option>
+				
+					<option value='24'
+						>Rio Grande do Norte</option>
+				
+					<option value='43'
+						>Rio Grande do Sul</option>
+				
+					<option value='11'
+						>Rondonia</option>
+				
+					<option value='14'
+						>Roraima</option>
+				
+					<option value='42'
+						>Santa Catarina</option>
+				
+					<option value='35'
+						>Sao Paulo</option>
+				
+					<option value='28'
+						>Sergipe</option>
+				
+					<option value='17'
+						>Tocantins</option>
+				
+			
+		</select></td>
+	</tr>
+	<tr>
+		<th><label>Munic&iacute;pio:</label>&nbsp;</th>
+		<td><select name="municipios">
+			
+				
+					<option value='220005'
+						>Acauã</option>
+				
+					<option value='220010'
+						>Agricolândia</option>
+				
+					<option value='220020'
+						>Água Branca</option>
+				
+					<option value='220025'
+						>Alagoinha do Piauí</option>
+				
+					<option value='220027'
+						>Alegrete do Piauí</option>
+				
+					<option value='220030'
+						>Alto Longá</option>
+				
+					<option value='220040'
+						>Altos</option>
+				
+					<option value='220045'
+						>Alvorada do Gurguéia</option>
+				
+					<option value='220050'
+						>Amarante</option>
+				
+					<option value='220060'
+						>Angical do Piauí</option>
+				
+					<option value='220070'
+						>Anísio de Abreu</option>
+				
+					<option value='220080'
+						>Antônio Almeida</option>
+				
+					<option value='220090'
+						>Aroazes</option>
+				
+					<option value='220095'
+						>Aroeiras do Itaim</option>
+				
+					<option value='220100'
+						>Arraial</option>
+				
+					<option value='220105'
+						>Assunção do Piauí</option>
+				
+					<option value='220110'
+						>Avelino Lopes</option>
+				
+					<option value='220115'
+						>Baixa Grande do Ribeiro</option>
+				
+					<option value='220117'
+						>Barra D&#039;Alcântara</option>
+				
+					<option value='220120'
+						>Barras</option>
+				
+					<option value='220130'
+						>Barreiras do Piauí</option>
+				
+					<option value='220140'
+						>Barro Duro</option>
+				
+					<option value='220150'
+						>Batalha</option>
+				
+					<option value='220155'
+						>Bela Vista do Piauí</option>
+				
+					<option value='220157'
+						>Belém do Piauí</option>
+				
+					<option value='220160'
+						>Beneditinos</option>
+				
+					<option value='220170'
+						>Bertolínia</option>
+				
+					<option value='220173'
+						>Betânia do Piauí</option>
+				
+					<option value='220177'
+						>Boa Hora</option>
+				
+					<option value='220180'
+						>Bocaina</option>
+				
+					<option value='220190'
+						>Bom Jesus</option>
+				
+					<option value='220191'
+						>Bom Princípio do Piauí</option>
+				
+					<option value='220192'
+						selected
+              
+          >Bonfim do Piauí</option>
+				
+					<option value='220194'
+						>Boqueirão do Piauí</option>
+				
+					<option value='220196'
+						>Brasileira</option>
+				
+					<option value='220198'
+						>Brejo do Piauí</option>
+				
+					<option value='220200'
+						>Buriti dos Lopes</option>
+				
+					<option value='220202'
+						>Buriti dos Montes</option>
+				
+					<option value='220205'
+						>Cabeceiras do Piauí</option>
+				
+					<option value='220207'
+						>Cajazeiras do Piauí</option>
+				
+					<option value='220208'
+						>Cajueiro da Praia</option>
+				
+					<option value='220209'
+						>Caldeirão Grande do Piauí</option>
+				
+					<option value='220210'
+						>Campinas do Piauí</option>
+				
+					<option value='220211'
+						>Campo Alegre do Fidalgo</option>
+				
+					<option value='220213'
+						>Campo Grande do Piauí</option>
+				
+					<option value='220217'
+						>Campo Largo do Piauí</option>
+				
+					<option value='220220'
+						>Campo Maior</option>
+				
+					<option value='220225'
+						>Canavieira</option>
+				
+					<option value='220230'
+						>Canto do Buriti</option>
+				
+					<option value='220240'
+						>Capitão de Campos</option>
+				
+					<option value='220245'
+						>Capitão Gervásio Oliveira</option>
+				
+					<option value='220250'
+						>Caracol</option>
+				
+					<option value='220253'
+						>Caraúbas do Piauí</option>
+				
+					<option value='220255'
+						>Caridade do Piauí</option>
+				
+					<option value='220260'
+						>Castelo do Piauí</option>
+				
+					<option value='220265'
+						>Caxingó</option>
+				
+					<option value='220270'
+						>Cocal</option>
+				
+					<option value='220271'
+						>Cocal de Telha</option>
+				
+					<option value='220272'
+						>Cocal dos Alves</option>
+				
+					<option value='220273'
+						>Coivaras</option>
+				
+					<option value='220275'
+						>Colônia do Gurguéia</option>
+				
+					<option value='220277'
+						>Colônia do Piauí</option>
+				
+					<option value='220280'
+						>Conceição do Canindé</option>
+				
+					<option value='220285'
+						>Coronel José Dias</option>
+				
+					<option value='220290'
+						>Corrente</option>
+				
+					<option value='220300'
+						>Cristalândia do Piauí</option>
+				
+					<option value='220310'
+						>Cristino Castro</option>
+				
+					<option value='220320'
+						>Curimatá</option>
+				
+					<option value='220323'
+						>Currais</option>
+				
+					<option value='220327'
+						>Curral Novo do Piauí</option>
+				
+					<option value='220325'
+						>Curralinhos</option>
+				
+					<option value='220330'
+						>Demerval Lobão</option>
+				
+					<option value='220335'
+						>Dirceu Arcoverde</option>
+				
+					<option value='220340'
+						>Dom Expedito Lopes</option>
+				
+					<option value='220345'
+						>Dom Inocêncio</option>
+				
+					<option value='220342'
+						>Domingos Mourão</option>
+				
+					<option value='220350'
+						>Elesbão Veloso</option>
+				
+					<option value='220360'
+						>Eliseu Martins</option>
+				
+					<option value='220370'
+						>Esperantina</option>
+				
+					<option value='220375'
+						>Fartura do Piauí</option>
+				
+					<option value='220380'
+						>Flores do Piauí</option>
+				
+					<option value='220385'
+						>Floresta do Piauí</option>
+				
+					<option value='220390'
+						>Floriano</option>
+				
+					<option value='220400'
+						>Francinópolis</option>
+				
+					<option value='220410'
+						>Francisco Ayres</option>
+				
+					<option value='220415'
+						>Francisco Macedo</option>
+				
+					<option value='220420'
+						>Francisco Santos</option>
+				
+					<option value='220430'
+						>Fronteiras</option>
+				
+					<option value='220435'
+						>Geminiano</option>
+				
+					<option value='220440'
+						>Gilbués</option>
+				
+					<option value='220450'
+						>Guadalupe</option>
+				
+					<option value='220455'
+						>Guaribas</option>
+				
+					<option value='220460'
+						>Hugo Napoleão</option>
+				
+					<option value='220465'
+						>Ilha Grande</option>
+				
+					<option value='220470'
+						>Inhuma</option>
+				
+					<option value='220480'
+						>Ipiranga do Piauí</option>
+				
+					<option value='220490'
+						>Isaías Coelho</option>
+				
+					<option value='220500'
+						>Itainópolis</option>
+				
+					<option value='220510'
+						>Itaueira</option>
+				
+					<option value='220515'
+						>Jacobina do Piauí</option>
+				
+					<option value='220520'
+						>Jaicós</option>
+				
+					<option value='220525'
+						>Jardim do Mulato</option>
+				
+					<option value='220527'
+						>Jatobá do Piauí</option>
+				
+					<option value='220530'
+						>Jerumenha</option>
+				
+					<option value='220535'
+						>João Costa</option>
+				
+					<option value='220540'
+						>Joaquim Pires</option>
+				
+					<option value='220545'
+						>Joca Marques</option>
+				
+					<option value='220550'
+						>José de Freitas</option>
+				
+					<option value='220551'
+						>Juazeiro do Piauí</option>
+				
+					<option value='220552'
+						>Júlio Borges</option>
+				
+					<option value='220553'
+						>Jurema</option>
+				
+					<option value='220555'
+						>Lagoa Alegre</option>
+				
+					<option value='220557'
+						>Lagoa de São Francisco</option>
+				
+					<option value='220556'
+						>Lagoa do Barro do Piauí</option>
+				
+					<option value='220558'
+						>Lagoa do Piauí</option>
+				
+					<option value='220559'
+						>Lagoa do Sítio</option>
+				
+					<option value='220554'
+						>Lagoinha do Piauí</option>
+				
+					<option value='220560'
+						>Landri Sales</option>
+				
+					<option value='220570'
+						>Luís Correia</option>
+				
+					<option value='220580'
+						>Luzilândia</option>
+				
+					<option value='220585'
+						>Madeiro</option>
+				
+					<option value='220590'
+						>Manoel Emídio</option>
+				
+					<option value='220595'
+						>Marcolândia</option>
+				
+					<option value='220600'
+						>Marcos Parente</option>
+				
+					<option value='220605'
+						>Massapê do Piauí</option>
+				
+					<option value='220610'
+						>Matias Olímpio</option>
+				
+					<option value='220620'
+						>Miguel Alves</option>
+				
+					<option value='220630'
+						>Miguel Leão</option>
+				
+					<option value='220635'
+						>Milton Brandão</option>
+				
+					<option value='220640'
+						>Monsenhor Gil</option>
+				
+					<option value='220650'
+						>Monsenhor Hipólito</option>
+				
+					<option value='220660'
+						>Monte Alegre do Piauí</option>
+				
+					<option value='220665'
+						>Morro Cabeça no Tempo</option>
+				
+					<option value='220667'
+						>Morro do Chapéu do Piauí</option>
+				
+					<option value='220669'
+						>Murici dos Portelas</option>
+				
+					<option value='220670'
+						>Nazaré do Piauí</option>
+				
+					<option value='220672'
+						>Nazária</option>
+				
+					<option value='220675'
+						>Nossa Senhora de Nazaré</option>
+				
+					<option value='220680'
+						>Nossa Senhora dos Remédios</option>
+				
+					<option value='220795'
+						>Nova Santa Rita</option>
+				
+					<option value='220690'
+						>Novo Oriente do Piauí</option>
+				
+					<option value='220695'
+						>Novo Santo Antônio</option>
+				
+					<option value='220700'
+						>Oeiras</option>
+				
+					<option value='220710'
+						>Olho D&#039;Água do Piauí</option>
+				
+					<option value='220720'
+						>Padre Marcos</option>
+				
+					<option value='220730'
+						>Paes Landim</option>
+				
+					<option value='220735'
+						>Pajeú do Piauí</option>
+				
+					<option value='220740'
+						>Palmeira do Piauí</option>
+				
+					<option value='220750'
+						>Palmeirais</option>
+				
+					<option value='220755'
+						>Paquetá</option>
+				
+					<option value='220760'
+						>Parnaguá</option>
+				
+					<option value='220770'
+						>Parnaíba</option>
+				
+					<option value='220775'
+						>Passagem Franca do Piauí</option>
+				
+					<option value='220777'
+						>Patos do Piauí</option>
+				
+					<option value='220779'
+						>Pau D&#039;Arco do Piauí</option>
+				
+					<option value='220780'
+						>Paulistana</option>
+				
+					<option value='220785'
+						>Pavussu</option>
+				
+					<option value='220790'
+						>Pedro II</option>
+				
+					<option value='220793'
+						>Pedro Laurentino</option>
+				
+					<option value='220800'
+						>Picos</option>
+				
+					<option value='220810'
+						>Pimenteiras</option>
+				
+					<option value='220820'
+						>Pio IX</option>
+				
+					<option value='220830'
+						>Piracuruca</option>
+				
+					<option value='220840'
+						>Piripiri</option>
+				
+					<option value='220850'
+						>Porto</option>
+				
+					<option value='220855'
+						>Porto Alegre do Piauí</option>
+				
+					<option value='220860'
+						>Prata do Piauí</option>
+				
+					<option value='220865'
+						>Queimada Nova</option>
+				
+					<option value='220870'
+						>Redenção do Gurguéia</option>
+				
+					<option value='220880'
+						>Regeneração</option>
+				
+					<option value='220885'
+						>Riacho Frio</option>
+				
+					<option value='220887'
+						>Ribeira do Piauí</option>
+				
+					<option value='220890'
+						>Ribeiro Gonçalves</option>
+				
+					<option value='220900'
+						>Rio Grande do Piauí</option>
+				
+					<option value='220910'
+						>Santa Cruz do Piauí</option>
+				
+					<option value='220915'
+						>Santa Cruz dos Milagres</option>
+				
+					<option value='220920'
+						>Santa Filomena</option>
+				
+					<option value='220930'
+						>Santa Luz</option>
+				
+					<option value='220937'
+						>Santa Rosa do Piauí</option>
+				
+					<option value='220935'
+						>Santana do Piauí</option>
+				
+					<option value='220940'
+						>Santo Antônio de Lisboa</option>
+				
+					<option value='220945'
+						>Santo Antônio dos Milagres</option>
+				
+					<option value='220950'
+						>Santo Inácio do Piauí</option>
+				
+					<option value='220955'
+						>São Braz do Piauí</option>
+				
+					<option value='220960'
+						>São Félix do Piauí</option>
+				
+					<option value='220965'
+						>São Francisco de Assis do Piauí</option>
+				
+					<option value='220970'
+						>São Francisco do Piauí</option>
+				
+					<option value='220975'
+						>São Gonçalo do Gurguéia</option>
+				
+					<option value='220980'
+						>São Gonçalo do Piauí</option>
+				
+					<option value='220985'
+						>São João da Canabrava</option>
+				
+					<option value='220987'
+						>São João da Fronteira</option>
+				
+					<option value='220990'
+						>São João da Serra</option>
+				
+					<option value='220995'
+						>São João da Varjota</option>
+				
+					<option value='220997'
+						>São João do Arraial</option>
+				
+					<option value='221000'
+						>São João do Piauí</option>
+				
+					<option value='221005'
+						>São José do Divino</option>
+				
+					<option value='221010'
+						>São José do Peixe</option>
+				
+					<option value='221020'
+						>São José do Piauí</option>
+				
+					<option value='221030'
+						>São Julião</option>
+				
+					<option value='221035'
+						>São Lourenço do Piauí</option>
+				
+					<option value='221037'
+						>São Luis do Piauí</option>
+				
+					<option value='221038'
+						>São Miguel da Baixa Grande</option>
+				
+					<option value='221039'
+						>São Miguel do Fidalgo</option>
+				
+					<option value='221040'
+						>São Miguel do Tapuio</option>
+				
+					<option value='221050'
+						>São Pedro do Piauí</option>
+				
+					<option value='221060'
+						>São Raimundo Nonato</option>
+				
+					<option value='221062'
+						>Sebastião Barros</option>
+				
+					<option value='221063'
+						>Sebastião Leal</option>
+				
+					<option value='221065'
+						>Sigefredo Pacheco</option>
+				
+					<option value='221070'
+						>Simões</option>
+				
+					<option value='221080'
+						>Simplício Mendes</option>
+				
+					<option value='221090'
+						>Socorro do Piauí</option>
+				
+					<option value='221093'
+						>Sussuapara</option>
+				
+					<option value='221095'
+						>Tamboril do Piauí</option>
+				
+					<option value='221097'
+						>Tanque do Piauí</option>
+				
+					<option value='221100'
+						>Teresina</option>
+				
+					<option value='221110'
+						>União</option>
+				
+					<option value='221120'
+						>Uruçuí</option>
+				
+					<option value='221130'
+						>Valença do Piauí</option>
+				
+					<option value='221135'
+						>Várzea Branca</option>
+				
+					<option value='221140'
+						>Várzea Grande</option>
+				
+					<option value='221150'
+						>Vera Mendes</option>
+				
+					<option value='221160'
+						>Vila Nova do Piauí</option>
+				
+					<option value='221170'
+						>Wall Ferraz</option>
+				
+			
+		</select></td>
+	</tr>
+	  
+	<tr>
+		<th><label>Administra&ccedil;&atilde;o:</label>&nbsp;</th>
+		<td><select onChange="document.formDados.submit()" name="admin">
+			  
+			    <option value='3' selected> Consolidada </option>
+			  
+			  
+		    </select>
+		</td>
+	</tr>
+	
+	
+	<!-- 
+	<tr>
+		  <th><label>Administra&ccedil;&atilde;o:</label>&nbsp;</th>
+		  <td>
+	        <select onChange="document.formDados.submit()" name="admin">
+					<option value="1"
+					 	   >
+						   Direta			
+				    </option>
+					<option value="2"										
+					       >
+						   Indireta 			
+					</option>
+					<option value="3"
+					  	   selected>
+					       Consolidada			
+					</option>								
+			</select>
+			</td>                        
+	</tr>
+	-->
+	<tr>
+		<th><strong>Planilha:</strong>&nbsp;</th>
+		<td><select name="planilhas" id="planilhas" style="width: 430px;">
+			
+			<option
+				value='124'
+				selected>Consolidado de Receita</option>
+			
+			<option
+				value='125'
+				>Consolidado de Despesa</option>
+			
+			<option
+				value='1'
+				>Receita Total</option>
+			
+			<option
+				value='27'
+				>Despesas com Manutenção e Desenvolvimento do Ensino</option>
+			
+			<option
+				value='2'
+				>&nbsp;&nbsp;&nbsp;Despesas Próprias Custeadas com Impostos e Transferências</option>
+			
+			<option
+				value='664'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;242 - Assistência ao Portador de Deficiência</option>
+			
+			<option
+				value='665'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;243 - Assistência à Criança e ao Adolescente</option>
+			
+			<option
+				value='238'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;271 - Previdência Básica</option>
+			
+			<option
+				value='239'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;272 - Previdência do Regime Estatutário</option>
+			
+			<option
+				value='240'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;273 - Previdência Complementar</option>
+			
+			<option
+				value='173'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;274 - Previdência Especial</option>
+			
+			<option
+				value='134'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;361 - Ensino Fundamental - Exceto FUNDEB</option>
+			
+			<option
+				value='241'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='3'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='242'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='243'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='244'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='4'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='245'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='5'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='50'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='7'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ensino Fundamental - Exceto FUNDEB</option>
+			
+			<option
+				value='617'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação de Jovens e Adultos</option>
+			
+			<option
+				value='618'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Especial</option>
+			
+			<option
+				value='246'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='620'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refinanciamento da Dívida Interna</option>
+			
+			<option
+				value='621'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refinanciamento da Dívida Externa</option>
+			
+			<option
+				value='622'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serviço da Dívida Interna</option>
+			
+			<option
+				value='623'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serviço da Dívida Externa</option>
+			
+			<option
+				value='624'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outros Encargos Especiais</option>
+			
+			<option
+				value='174'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;362 - Ensino Médio</option>
+			
+			<option
+				value='252'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='186'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='253'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='254'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='255'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='187'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='256'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='257'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='188'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='189'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ensino Médio</option>
+			
+			<option
+				value='700'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação de Jovens e Adultos</option>
+			
+			<option
+				value='701'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Especial</option>
+			
+			<option
+				value='258'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='175'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;363 - Ensino Profissional (Qualificação para o Trabalho)</option>
+			
+			<option
+				value='264'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='265'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='266'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='267'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='283'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='284'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='285'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='296'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='297'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='298'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ensino Profissional</option>
+			
+			<option
+				value='299'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='176'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;364 - Ensino Superior</option>
+			
+			<option
+				value='268'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='269'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='270'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='271'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='286'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='287'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='288'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='306'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='307'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ensino Superior</option>
+			
+			<option
+				value='308'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='133'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;365 - Educação Infantil (Creche) - Exceto FUNDEB</option>
+			
+			<option
+				value='703'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='704'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='705'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='706'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='707'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='708'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='709'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='710'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='711'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='712'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Infantil</option>
+			
+			<option
+				value='713'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Especial</option>
+			
+			<option
+				value='714'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='715'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refinanciamento da Dívida Interna</option>
+			
+			<option
+				value='716'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refinanciamento da Dívida Externa</option>
+			
+			<option
+				value='717'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serviço da Dívida Interna</option>
+			
+			<option
+				value='718'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serviço da Dívida Externa</option>
+			
+			<option
+				value='719'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outros Encargos Especiais</option>
+			
+			<option
+				value='702'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;365 - Educação Infantil (Pré-Escola) - Exceto FUNDEB</option>
+			
+			<option
+				value='272'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='135'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='273'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='274'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='289'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='136'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='290'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='137'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='148'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='11'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Infantil</option>
+			
+			<option
+				value='619'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Especial</option>
+			
+			<option
+				value='315'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='625'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refinanciamento da Dívida Interna</option>
+			
+			<option
+				value='626'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refinanciamento da Dívida Externa</option>
+			
+			<option
+				value='627'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serviço da Dívida Interna</option>
+			
+			<option
+				value='628'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serviço da Dívida Externa</option>
+			
+			<option
+				value='629'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outros Encargos Especiais</option>
+			
+			<option
+				value='337'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;392 - Difusão Cultural</option>
+			
+			<option
+				value='608'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;695 - Turismo</option>
+			
+			<option
+				value='338'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;722 - Telecomunicações (Educação a Distância)</option>
+			
+			<option
+				value='602'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;812 - Desporto Comunitário</option>
+			
+			<option
+				value='609'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;813 - Lazer</option>
+			
+			<option
+				value='339'
+				>&nbsp;&nbsp;&nbsp;Despesas com o FUNDEB</option>
+			
+			<option
+				value='340'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;361 - Ensino Fundamental</option>
+			
+			<option
+				value='341'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='30'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='342'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='343'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização  e Fiscalização</option>
+			
+			<option
+				value='344'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='31'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='345'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='346'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='347'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='32'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ensino Fundamental</option>
+			
+			<option
+				value='33'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação de Jovens e Adultos</option>
+			
+			<option
+				value='129'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Especial</option>
+			
+			<option
+				value='348'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='630'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refinanciamento da Dívida Interna</option>
+			
+			<option
+				value='631'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refinanciamento da Dívida Externa</option>
+			
+			<option
+				value='632'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serviço da Dívida Interna</option>
+			
+			<option
+				value='633'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serviço da Dívida Externa</option>
+			
+			<option
+				value='634'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outros Encargos Especiais</option>
+			
+			<option
+				value='349'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;365 - Educação Infantil (Creche)</option>
+			
+			<option
+				value='721'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='722'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='723'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='724'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='725'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='726'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='727'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='728'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='729'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='730'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Infantil</option>
+			
+			<option
+				value='731'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Especial</option>
+			
+			<option
+				value='732'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='733'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refinanciamento da Dívida Interna</option>
+			
+			<option
+				value='734'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refinanciamento da Dívida Externa</option>
+			
+			<option
+				value='735'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serviço da Dívida Interna</option>
+			
+			<option
+				value='736'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serviço da Dívida Externa</option>
+			
+			<option
+				value='737'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outros Encargos Especiais</option>
+			
+			<option
+				value='720'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;365 - Educação Infantil (Pré-Escola)</option>
+			
+			<option
+				value='350'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='351'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='352'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='353'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='354'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='355'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='356'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='357'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='358'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='359'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Infantil</option>
+			
+			<option
+				value='360'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Especial</option>
+			
+			<option
+				value='361'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='635'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refinanciamento da Dívida Interna</option>
+			
+			<option
+				value='636'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refinanciamento da Dívida Externa</option>
+			
+			<option
+				value='637'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serviço da Dívida Interna</option>
+			
+			<option
+				value='638'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serviço da Dívida Externa</option>
+			
+			<option
+				value='639'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outros Encargos Especiais</option>
+			
+			<option
+				value='29'
+				>&nbsp;&nbsp;&nbsp;Despesas Custeadas c/ Recursos Vinculados</option>
+			
+			<option
+				value='362'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;361 - Ensino Fundamental</option>
+			
+			<option
+				value='363'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='364'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='365'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='366'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='367'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='368'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='369'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='370'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='371'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='372'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ensino Fundamental</option>
+			
+			<option
+				value='751'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação de Jovens e Adultos</option>
+			
+			<option
+				value='752'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Especial</option>
+			
+			<option
+				value='373'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='668'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Royalties de Petróleo e de Indenizações</option>
+			
+			<option
+				value='37'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;362 - Ensino Médio</option>
+			
+			<option
+				value='374'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='375'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='376'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='377'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='378'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='379'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='380'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='381'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='382'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='383'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ensino Médio</option>
+			
+			<option
+				value='753'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação de Jovens e Adultos</option>
+			
+			<option
+				value='754'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Especial</option>
+			
+			<option
+				value='384'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='669'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Royalties de Petróleo e de Indenizações</option>
+			
+			<option
+				value='38'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;363 - Ensino Profissional</option>
+			
+			<option
+				value='385'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='386'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='387'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='388'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='389'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='390'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='391'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='392'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='393'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='394'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ensino Profissional</option>
+			
+			<option
+				value='395'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='670'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Royalties de Petróleo e de Indenizações</option>
+			
+			<option
+				value='676'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;364 - Ensino Superior</option>
+			
+			<option
+				value='677'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='678'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='679'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='680'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='681'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='682'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='683'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='684'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='685'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ensino Superior</option>
+			
+			<option
+				value='686'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='687'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Royalties de Petróleo e de Indenizações</option>
+			
+			<option
+				value='40'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;365 - Educação Infantil (Creche)</option>
+			
+			<option
+				value='738'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='739'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='740'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='741'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='742'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='743'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='744'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='745'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='746'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='747'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Infantil</option>
+			
+			<option
+				value='755'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Especial</option>
+			
+			<option
+				value='748'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='749'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Royalties de Petróleo e de Indenizações</option>
+			
+			<option
+				value='750'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;365 - Educação Infantil (Pré-Escola)</option>
+			
+			<option
+				value='407'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='408'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='409'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='410'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='411'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='412'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='413'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='414'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='415'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='416'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Infantil</option>
+			
+			<option
+				value='756'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Especial</option>
+			
+			<option
+				value='417'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='671'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Royalties de Petróleo e de Indenizações</option>
+			
+			<option
+				value='217'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vinculadas a Contribuição Social do Salário-Educação</option>
+			
+			<option
+				value='757'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;361 - Ensino Fundamental</option>
+			
+			<option
+				value='762'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='763'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='764'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='765'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='766'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='767'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='768'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='769'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='770'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='771'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ensino Fundamental</option>
+			
+			<option
+				value='772'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação de Jovens e Adultos</option>
+			
+			<option
+				value='773'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Especial</option>
+			
+			<option
+				value='774'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='758'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;362 - Ensino Médio</option>
+			
+			<option
+				value='775'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='776'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='777'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='778'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='779'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='780'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='781'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='782'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='783'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='784'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ensino Médio</option>
+			
+			<option
+				value='785'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação de Jovens e Adultos</option>
+			
+			<option
+				value='786'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Especial</option>
+			
+			<option
+				value='787'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='759'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;363 - Ensino Profissional</option>
+			
+			<option
+				value='788'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='789'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='790'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='791'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='792'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='793'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='794'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='795'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='796'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='797'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ensino Profissional</option>
+			
+			<option
+				value='798'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='760'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;365 - Educação Infantil (Creche)</option>
+			
+			<option
+				value='799'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='800'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='801'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='802'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='803'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='804'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='805'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='806'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='807'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='808'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Infantil</option>
+			
+			<option
+				value='809'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Especial</option>
+			
+			<option
+				value='810'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='761'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;365 - Educação Infantil (Pré-Escola)</option>
+			
+			<option
+				value='811'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Planejamento e Orçamento</option>
+			
+			<option
+				value='812'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Geral</option>
+			
+			<option
+				value='813'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administração Financeira</option>
+			
+			<option
+				value='814'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normatização e Fiscalização</option>
+			
+			<option
+				value='815'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tecnologia da Informação</option>
+			
+			<option
+				value='816'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formação de Recursos Humanos</option>
+			
+			<option
+				value='817'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comunicação Social</option>
+			
+			<option
+				value='818'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alimentação e Nutrição - Merenda Escolar</option>
+			
+			<option
+				value='819'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Proteção e Benefícios ao Trabalhador</option>
+			
+			<option
+				value='820'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Infantil</option>
+			
+			<option
+				value='821'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educação Especial</option>
+			
+			<option
+				value='822'
+				>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transporte Escolar</option>
+			
+			<option
+				value='663'
+				>Informações Complementares</option>
+			
+		</select> 
+		
+		<input type="hidden" name="descricaoItem" ID="descricaoItem"/>
+		<input type="hidden" name="descricaodoItem" ID="descricaodoItem"/>
+		<input type="hidden" name="nivel" ID="nivel"/>
+
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" id="buttonBar">
+		   <input type="button" name="Submit" value="Consultar" onClick="submitForm()"/>
+		</td>
+	</tr>
+</table>
+
+</form>
+
+</div>
+
+
+
+    
+
+  <div id="searchResult">
+
+  <hr/>
+  <br/>
+  
+  <p class="print"><img align="absmiddle" src="images/print_icon.gif" /> <a href='javascript:;' onClick="window.print();return 'false' ">Imprimir</a></p>
+
+  <p><label>Ano:</label>&nbsp;2015</p>
+  <p><label>Per&iacute;odo:</label>&nbsp;Anual</p>
+  <p><label>UF:</label>&nbsp;Piaui</p>
+  <p><label>Munic&iacute;pios:</label>&nbsp;Bonfim do Piauí</p>
+  <p><label>Administra&ccedil;&atilde;o:</label>
+    
+      
+      
+      
+      Consolidada
+      
+     
+  </p>
+   <p> <label>Planilha:</label>
+ 
+   
+  <br><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consolidado de Receita</label>
+  <br /> <br />
+  
+  
+
+ <div class="report">
+    <table class="table">
+    <tr> 
+      <th>C&oacute;digo&nbsp;</th>
+      <th>Descri&ccedil;&atilde;o</th>
+      
+      <th>Previsão Atualizada</th>
+      
+      <th>Receitas Realizadas</th>
+      
+      <th>Receitas Orçadas</th>
+      
+    </tr>
+    
+  
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.10.00.00.00.00</td>
+          <td>RECEITAS CORRENTES</td>
+          
+           <td><div class="number">13.692.300,00</div></td>
+          
+           <td><div class="number">11.873.013,12</div></td>
+          
+           <td><div class="number">14.573.619,60</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.11.00.00.00.00</td>
+          <td>RECEITA TRIBUTÁRIA</td>
+          
+           <td><div class="number">205.500,00</div></td>
+          
+           <td><div class="number">193.413,83</div></td>
+          
+           <td><div class="number">210.500,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.11.10.00.00.00</td>
+          <td>Impostos</td>
+          
+           <td><div class="number">200.000,00</div></td>
+          
+           <td><div class="number">193.263,83</div></td>
+          
+           <td><div class="number">205.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.11.12.00.00.00</td>
+          <td>Impostos sobre o Patrimônio e a Renda</td>
+          
+           <td><div class="number">125.000,00</div></td>
+          
+           <td><div class="number">128.358,67</div></td>
+          
+           <td><div class="number">135.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.11.12.01.00.00</td>
+          <td>ITR</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.11.12.02.00.00</td>
+          <td>IPTU</td>
+          
+           <td><div class="number">3.000,00</div></td>
+          
+           <td><div class="number">132,00</div></td>
+          
+           <td><div class="number">3.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.11.12.04.00.00</td>
+          <td>IRRF</td>
+          
+           <td><div class="number">120.000,00</div></td>
+          
+           <td><div class="number">128.006,67</div></td>
+          
+           <td><div class="number">130.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.11.12.04.31.00</td>
+          <td>IRRF s/ Rendimentos do Trabalho (Art.158- I CF/88)</td>
+          
+           <td><div class="number">120.000,00</div></td>
+          
+           <td><div class="number">128.006,67</div></td>
+          
+           <td><div class="number">130.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.11.12.04.34.00</td>
+          <td>IRRF sobre Outros Rendimentos</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.11.12.04.35.00</td>
+          <td>IRRF Receita de Parcelamentos</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.11.12.08.00.00</td>
+          <td>ITBI</td>
+          
+           <td><div class="number">2.000,00</div></td>
+          
+           <td><div class="number">220,00</div></td>
+          
+           <td><div class="number">2.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.11.13.00.00.00</td>
+          <td>IMPOSTO SOBRE A PRODUÇÃO E A CIRCULAÇÃO</td>
+          
+           <td><div class="number">75.000,00</div></td>
+          
+           <td><div class="number">64.905,16</div></td>
+          
+           <td><div class="number">70.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.11.13.05.00.00</td>
+          <td>ISS</td>
+          
+           <td><div class="number">75.000,00</div></td>
+          
+           <td><div class="number">64.905,16</div></td>
+          
+           <td><div class="number">70.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.11.13.05.01.00</td>
+          <td>Imposto Sobre Serviços de Qualquer Natureza</td>
+          
+           <td><div class="number">75.000,00</div></td>
+          
+           <td><div class="number">64.905,16</div></td>
+          
+           <td><div class="number">70.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.11.13.05.02.00</td>
+          <td>Adicional ISS - Fundo Municipal de Combate à Pobreza (0,5% do ISS - ADCT, art 82, §2º)</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.11.20.00.00.00</td>
+          <td>Taxas</td>
+          
+           <td><div class="number">5.000,00</div></td>
+          
+           <td><div class="number">150,00</div></td>
+          
+           <td><div class="number">5.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.11.30.00.00.00</td>
+          <td>Contribuição de Melhoria</td>
+          
+           <td><div class="number">500,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">500,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.12.00.00.00.00</td>
+          <td>RECEITAS DE CONTRIBUIÇÕES</td>
+          
+           <td><div class="number">50.000,00</div></td>
+          
+           <td><div class="number">105.409,82</div></td>
+          
+           <td><div class="number">90.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.13.00.00.00.00</td>
+          <td>RECEITA PATRIMONIAL</td>
+          
+           <td><div class="number">56.000,00</div></td>
+          
+           <td><div class="number">85.432,74</div></td>
+          
+           <td><div class="number">56.295,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.13.10.00.00.00</td>
+          <td>Receitas Imobiliárias</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.13.20.00.00.00</td>
+          <td>Receitas de Valores Mobiliários</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.13.25.00.00.00</td>
+          <td>Remuneração de Depósitos Bancários</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.13.25.01.00.00</td>
+          <td>Remun. de Depósitos Banc. de Rec. Vinculados</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.13.25.01.01.00</td>
+          <td>Receita de Remuneração de Depósitos Bancários de Recursos Vinculados - Royalties</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.13.25.01.02.00</td>
+          <td>Rec. de Rem. de Dep. Bancários de Rec. Vinc. - FUNDEB</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.13.25.01.03.00</td>
+          <td>Rec. de Remun. de Dep. Banc. de Rec. Vinc. - Fundo de Saúde</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.13.25.01.05.00</td>
+          <td>Receita Remuneração de Depósitos Bancários - MDE</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.13.25.01.06.00</td>
+          <td>Rec. de Rem. de Dep. Banc. de Rec. Vinc. a Ações e Serviços Públicos de Saúde</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.13.25.01.07.00</td>
+          <td>Receita de Remuneração de Depósitos Bancários dos Recursos do FNDE</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.13.25.01.09.00</td>
+          <td>Receita de Remuneração de Depósitos Bancários da CIDE</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.13.25.01.11.00</td>
+          <td>Rec. de Rem. de Dep. Bancários de Rec. Provenientes de Convênios</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.13.25.01.99.00</td>
+          <td>Remun. de Outros Depósitos Banc. de Rec. Vinculados</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.13.25.02.00.00</td>
+          <td>Remun. de Dep. Banc. de Rec. Não Vinculados</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.13.29.00.00.00</td>
+          <td>Outras Receitas de Valores Mobiliários</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.13.40.00.00.00</td>
+          <td>Compensações Financeiras</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.13.40.01.00.00</td>
+          <td>Utilização de Recursos Hídricos - Itaipu</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.13.90.00.00.00</td>
+          <td>Outras Receitas Patrimoniais</td>
+          
+           <td><div class="number">56.000,00</div></td>
+          
+           <td><div class="number">85.432,74</div></td>
+          
+           <td><div class="number">56.295,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.14.00.00.00.00</td>
+          <td>RECEITA AGROPECUÁRIA</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.15.00.00.00.00</td>
+          <td>RECEITA INDUSTRIAL</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.16.00.00.00.00</td>
+          <td>RECEITA DE SERVIÇOS</td>
+          
+           <td><div class="number">1.000,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">1.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.16.00.16.00.00</td>
+          <td>Serviços Educacionais</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.16.00.99.00.00</td>
+          <td>Outros Serviços</td>
+          
+           <td><div class="number">1.000,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">1.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.00.00.00.00</td>
+          <td>TRANSFERÊNCIAS CORRENTES</td>
+          
+           <td><div class="number">13.379.670,00</div></td>
+          
+           <td><div class="number">11.374.634,32</div></td>
+          
+           <td><div class="number">13.860.204,60</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.20.00.00.00</td>
+          <td>Transferências Intergovernamentais</td>
+          
+           <td><div class="number">11.503.430,00</div></td>
+          
+           <td><div class="number">11.374.634,32</div></td>
+          
+           <td><div class="number">13.115.279,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.21.00.00.00</td>
+          <td>Transferências da União</td>
+          
+           <td><div class="number">6.555.010,00</div></td>
+          
+           <td><div class="number">7.658.736,10</div></td>
+          
+           <td><div class="number">8.342.981,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.21.01.00.00</td>
+          <td>Participação na Receita da União</td>
+          
+           <td><div class="number">4.600.500,00</div></td>
+          
+           <td><div class="number">6.031.251,22</div></td>
+          
+           <td><div class="number">6.655.650,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.21.01.02.00</td>
+          <td>Cota-Parte do Fundo de Participação dos Municípios - FPM</td>
+          
+           <td><div class="number">4.600.000,00</div></td>
+          
+           <td><div class="number">6.030.724,63</div></td>
+          
+           <td><div class="number">6.655.500,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.21.01.02.10</td>
+          <td>Parcela referente à CF, art. 159, I, alínea b</td>
+          
+           <td><div class="number">4.600.000,00</div></td>
+          
+           <td><div class="number">5.712.618,37</div></td>
+          
+           <td><div class="number">6.525.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.21.01.02.20</td>
+          <td>Parcela referente à CF, art. 159, I, alínea d</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">318.106,26</div></td>
+          
+           <td><div class="number">130.500,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.21.01.02.30</td>
+          <td>Parcela referente à CF, art. 159, I, alínea e</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.21.01.05.00</td>
+          <td>Cota-Parte do ITR</td>
+          
+           <td><div class="number">500,00</div></td>
+          
+           <td><div class="number">526,59</div></td>
+          
+           <td><div class="number">150,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.21.01.13.00</td>
+          <td>Cota-Parte da CIDE</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.21.01.32.00</td>
+          <td>Cota-Parte do IOF-Ouro</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.21.22.00.00</td>
+          <td>Cota-Parte da Compensação Financ. pela Exploração de Rec. Naturais</td>
+          
+           <td><div class="number">67.000,00</div></td>
+          
+           <td><div class="number">64.619,33</div></td>
+          
+           <td><div class="number">67.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.21.22.11.00</td>
+          <td>Cota-Parte da Complementação Financeira de Recursos Hídricos</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.21.22.20.00</td>
+          <td>Cota-Parte da Compensação Financeira de Recursos Minerais - CFEM</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.21.22.30.00</td>
+          <td>Cota-Parte Royaties - Comp. Financ. Prod. Pet. - Lei 7990/89</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.21.22.40.00</td>
+          <td>Cota-Parte Royalties - Excedente Prod. Pet. - Lei 9478/97 art.I e II</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.21.22.50.00</td>
+          <td>Cota-Parte Royalties - Participação Especial - Lei 9478/97 art.50</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.21.22.70.00</td>
+          <td>Cota-Parte do Fundo Especial do Petróleo - FEP</td>
+          
+           <td><div class="number">65.000,00</div></td>
+          
+           <td><div class="number">64.053,49</div></td>
+          
+           <td><div class="number">65.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.21.22.90.00</td>
+          <td>Outras Transf. Decorrentes de Comp. Fin. pela Exploração de Rec. Naturais</td>
+          
+           <td><div class="number">2.000,00</div></td>
+          
+           <td><div class="number">565,84</div></td>
+          
+           <td><div class="number">2.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.21.33.00.00</td>
+          <td>Transf. de Rec. do SUS - Repasses Fundo a Fundo</td>
+          
+           <td><div class="number">1.066.000,00</div></td>
+          
+           <td><div class="number">955.022,56</div></td>
+          
+           <td><div class="number">1.004.210,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.21.34.00.00</td>
+          <td>Transf. de Rec. do Fundo Nac. de Assist. Social - FNAS</td>
+          
+           <td><div class="number">353.500,00</div></td>
+          
+           <td><div class="number">214.087,99</div></td>
+          
+           <td><div class="number">250.220,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.21.35.00.00</td>
+          <td>Transf. de Rec. do Fundo Nac. de Des. da Educ. - FNDE</td>
+          
+           <td><div class="number">267.010,00</div></td>
+          
+           <td><div class="number">391.346,20</div></td>
+          
+           <td><div class="number">355.250,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.21.35.01.00</td>
+          <td>Transferências do Salário Educação</td>
+          
+           <td><div class="number">65.000,00</div></td>
+          
+           <td><div class="number">111.289,83</div></td>
+          
+           <td><div class="number">134.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.21.35.02.00</td>
+          <td>Transferências Diretas do FNDE ao PDDE</td>
+          
+           <td><div class="number">25.000,00</div></td>
+          
+           <td><div class="number">3.180,00</div></td>
+          
+           <td><div class="number">10.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.21.35.03.00</td>
+          <td>Transferências Diretas do FNDE ao PNAE</td>
+          
+           <td><div class="number">80.000,00</div></td>
+          
+           <td><div class="number">124.354,00</div></td>
+          
+           <td><div class="number">113.200,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.21.35.04.00</td>
+          <td>Transferências Diretas do FNDE ao PNATE</td>
+          
+           <td><div class="number">78.000,00</div></td>
+          
+           <td><div class="number">91.247,37</div></td>
+          
+           <td><div class="number">88.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.21.35.05.00</td>
+          <td>Programa de Formação de Profissionais - PROJOVEM Urbano e Campo </td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.21.35.06.00</td>
+          <td>Programa da Escolaridade e Qualificação Profissional - PROJOVEM Urbano e Campo </td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">61.275,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.21.35.07.00</td>
+          <td>Apoio à Alfabetização e à Educação de Jovens e Adultos - BRALF </td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.21.35.99.00</td>
+          <td>Outras Transferências Diretas do FNDE</td>
+          
+           <td><div class="number">19.010,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">10.050,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.21.36.00.00</td>
+          <td>Transferência Financeira ICMS - Desoneração - L.C. nº 87/96 (100%)</td>
+          
+           <td><div class="number">1.000,00</div></td>
+          
+           <td><div class="number">696,89</div></td>
+          
+           <td><div class="number">651,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.21.37.00.00</td>
+          <td>Transferências a Consórcios Públicos</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.21.99.00.00</td>
+          <td>Outras Transferências da União</td>
+          
+           <td><div class="number">200.000,00</div></td>
+          
+           <td><div class="number">1.711,91</div></td>
+          
+           <td><div class="number">10.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.22.00.00.00</td>
+          <td>Transferências dos Estados</td>
+          
+           <td><div class="number">567.060,00</div></td>
+          
+           <td><div class="number">547.276,84</div></td>
+          
+           <td><div class="number">514.693,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.22.01.00.00</td>
+          <td>Participação na Receita dos Estados</td>
+          
+           <td><div class="number">487.060,00</div></td>
+          
+           <td><div class="number">425.701,84</div></td>
+          
+           <td><div class="number">434.693,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.22.01.01.00</td>
+          <td>Cota-Parte do ICMS (100%)</td>
+          
+           <td><div class="number">320.000,00</div></td>
+          
+           <td><div class="number">369.117,44</div></td>
+          
+           <td><div class="number">395.600,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.22.01.02.00</td>
+          <td>Cota-Parte do IPVA</td>
+          
+           <td><div class="number">25.000,00</div></td>
+          
+           <td><div class="number">35.941,12</div></td>
+          
+           <td><div class="number">36.750,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.22.01.04.00</td>
+          <td>Cota-Parte do IPI sobre Exportação (100%)</td>
+          
+           <td><div class="number">200,00</div></td>
+          
+           <td><div class="number">90,18</div></td>
+          
+           <td><div class="number">107,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.22.01.13.00</td>
+          <td>Cota-Parte da CIDE</td>
+          
+           <td><div class="number">2.500,00</div></td>
+          
+           <td><div class="number">6.499,86</div></td>
+          
+           <td><div class="number">236,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.22.01.99.00</td>
+          <td>Outras Participações na Receita dos Estados</td>
+          
+           <td><div class="number">139.360,00</div></td>
+          
+           <td><div class="number">14.053,24</div></td>
+          
+           <td><div class="number">2.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.22.22.00.00</td>
+          <td>Transferências da Cota-Parte da Compensação Financeira (25%)</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.22.22.11.00</td>
+          <td>Transferências da Comp. Financ. de Recursos Hídricos</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.22.22.20.00</td>
+          <td>Transferências da Comp. Financ. de Recursos Minerais - CFEM</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.22.22.30.00</td>
+          <td>Cota-Parte Royalties Comp. Financ. Prod. Petróleo - Lei 7.990/89 art.9</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.22.22.90.00</td>
+          <td>Outras Transferências Decorrentes de Compensação Financeira</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.22.33.00.00</td>
+          <td>Transf. de Rec. do Est. para Prog. de Saúde - Rep. Fundo a Fundo</td>
+          
+           <td><div class="number">80.000,00</div></td>
+          
+           <td><div class="number">121.575,00</div></td>
+          
+           <td><div class="number">80.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.22.35.00.00</td>
+          <td>Transferências de Recursos do Estado para Programas de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.22.37.00.00</td>
+          <td>Transferências a Consórcios Públicos</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.22.99.00.00</td>
+          <td>Outras Transferências dos Estados</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.23.00.00.00</td>
+          <td>Transferências dos Municípios</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.23.00.00.03</td>
+          <td>Transferências de Municípios para Programas de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.23.01.00.00</td>
+          <td>Transferências de Recursos do Sistema Único de Saúde - SUS</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.23.37.00.00</td>
+          <td>Transferências a Consórcios Públicos</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.23.99.00.00</td>
+          <td>Outras Transferências dos Municípios</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.24.00.00.00</td>
+          <td>Transferências Multigovernamentais</td>
+          
+           <td><div class="number">4.381.360,00</div></td>
+          
+           <td><div class="number">3.168.621,38</div></td>
+          
+           <td><div class="number">4.257.605,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.24.01.00.00</td>
+          <td>Transferências de Recursos do FUNDEB</td>
+          
+           <td><div class="number">3.681.360,00</div></td>
+          
+           <td><div class="number">2.428.427,14</div></td>
+          
+           <td><div class="number">2.680.676,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.24.02.00.00</td>
+          <td>Transf. de Rec. da Complementação da União ao FUNDEB</td>
+          
+           <td><div class="number">700.000,00</div></td>
+          
+           <td><div class="number">740.194,24</div></td>
+          
+           <td><div class="number">1.576.929,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.24.99.00.00</td>
+          <td>Outras Transferências Multigovernamentais</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.30.00.00.00</td>
+          <td>Transferências de Instituições Privadas</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.30.00.00.03</td>
+          <td>Transf. de Inst. Privadas para Programas de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.30.99.00.00</td>
+          <td>Outras Transferências de Instituições Privadas</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.40.00.00.00</td>
+          <td>Transferências do Exterior</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.40.00.00.03</td>
+          <td>Transferências do Exterior para Programas de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.40.99.00.00</td>
+          <td>Outras Transferências do Exterior</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.50.00.00.00</td>
+          <td>Transferências de Pessoas</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.50.00.00.03</td>
+          <td>Transferências de Pessoas para Programas de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.50.99.00.00</td>
+          <td>Outras Transferências de Pessoas</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.60.00.00.00</td>
+          <td>Transferências de Convênios</td>
+          
+           <td><div class="number">1.876.240,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">744.925,60</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.61.00.00.00</td>
+          <td>Transf. de Convênios da União e de suas Entidades</td>
+          
+           <td><div class="number">1.265.740,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">721.925,60</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.61.01.00.00</td>
+          <td>Transferências de Convênios da União para o Sistema Único de Saúde - SUS</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.61.02.00.00</td>
+          <td>Transf. de Conv. da União Destinados a Prog. de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.61.02.00.10</td>
+          <td>Programa Nacional de Saúde do Escolar - PNSE</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.61.02.00.25</td>
+          <td>Progr. de Apoio a Aquisição de Equip. para a Rede Pública de Ens. Fund.</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.61.02.00.99</td>
+          <td>Outras Transferências de Convênios a Programas de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.61.99.00.00</td>
+          <td>Outras Transferências de Convênios da União</td>
+          
+           <td><div class="number">1.265.740,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">721.925,60</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.62.00.00.00</td>
+          <td>Transf. de Conv. dos Estados e do DF e de suas Entidades</td>
+          
+           <td><div class="number">610.500,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">23.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.62.01.00.00</td>
+          <td>Transferências de Convênio dos Estados para o Sistema Único de Saúde - SUS</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.62.02.00.00</td>
+          <td>Transf. de Conv. dos Est. Destinados à Prog. de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.62.99.00.00</td>
+          <td>Outras Transferências de Convênios dos Estados</td>
+          
+           <td><div class="number">610.500,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">23.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.63.00.00.00</td>
+          <td>Transf. de Conv. dos Municípios e de suas Entidades</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.63.01.00.00</td>
+          <td>Transferências de Convênios dos Municípios para o Sistema Único de Saúde - SUS</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.63.02.00.00</td>
+          <td>Transf. de Conv. dos Munic. Destinados a Progr. de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.63.99.00.00</td>
+          <td>Outras Transferências de Convênios dos Municípios</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.64.00.00.00</td>
+          <td>Transferência de Convênios de Instituições Privadas</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.17.65.00.00.00</td>
+          <td>Transferências de Convênios do Exterior</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.17.90.00.00.00</td>
+          <td>Outras Transferências Correntes</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.19.00.00.00.00</td>
+          <td>OUTRAS RECEITAS CORRENTES</td>
+          
+           <td><div class="number">130,00</div></td>
+          
+           <td><div class="number">114.122,41</div></td>
+          
+           <td><div class="number">355.620,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.19.10.00.00.00</td>
+          <td>Multas e Juros de Mora</td>
+          
+           <td><div class="number">90,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">90,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.19.11.00.00.00</td>
+          <td>Multas e Juros de Mora dos Tributos</td>
+          
+           <td><div class="number">40,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">50,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.19.11.02.00.00</td>
+          <td>Multas e Juros de Mora - IRRF</td>
+          
+           <td><div class="number">10,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">10,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.19.11.08.00.00</td>
+          <td>Multas e Juros de Mora sobre o ITR</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.19.11.38.00.00</td>
+          <td>Multas e Juros de Mora sobre o IPTU</td>
+          
+           <td><div class="number">10,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">10,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.19.11.39.00.00</td>
+          <td>Multas e Juros de Mora sobre o ITBI</td>
+          
+           <td><div class="number">10,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">10,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.19.11.40.00.00</td>
+          <td>Multas e Juros de Mora sobre o ISS</td>
+          
+           <td><div class="number">10,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">20,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.19.11.99.00.00</td>
+          <td>Multas e Juros de Mora de Outros Tributos</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.19.12.00.00.00</td>
+          <td>Multas e Juros de Mora de Contribuições</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.19.13.00.00.00</td>
+          <td>Multas e Juros de Mora da Dívida Ativa dos Tributos</td>
+          
+           <td><div class="number">50,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">40,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.19.13.02.00.00</td>
+          <td>Multas e Juros de Mora da Dívida Ativa do IRRF</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">10,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.19.13.08.00.00</td>
+          <td>Multas e Juros de Mora da Dívida Ativa sobre o ITR</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.19.13.11.00.00</td>
+          <td>Multas e Juros de Mora da Dívida Ativa sobre o IPTU</td>
+          
+           <td><div class="number">10,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">10,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.19.13.12.00.00</td>
+          <td>Multas e Juros de Mora da Dívida Ativa sobre o ITBI</td>
+          
+           <td><div class="number">10,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">10,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.19.13.13.00.00</td>
+          <td>Multas e Juros de Mora da Dívida Ativa sobre o ISS</td>
+          
+           <td><div class="number">10,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">10,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.19.13.99.00.00</td>
+          <td>Multas e Juros de Mora da Dívida Ativa de Outros Tributos</td>
+          
+           <td><div class="number">20,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.19.14.00.00.00</td>
+          <td>Multas e Juros de Mora da Dívida Ativa das Contribuições</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.19.15.00.00.00</td>
+          <td>Multas e Juros de Mora da Dívida Ativa de Outras Receitas</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.19.18.00.00.00</td>
+          <td>Multas e Juros de Mora de Outras Receitas</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.19.20.00.00.00</td>
+          <td>Indenizações e Restituições</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.19.30.00.00.00</td>
+          <td>Receita da Dívida Ativa</td>
+          
+           <td><div class="number">40,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">40,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.19.31.00.00.00</td>
+          <td>Receita da Dívida Ativa Tributária</td>
+          
+           <td><div class="number">40,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">40,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.19.31.01.00.00</td>
+          <td>Receita da Dívida Ativa do IRRF</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">10,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.19.31.04.00.00</td>
+          <td>Receita da Dívida Ativa do ITR</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.19.31.11.00.00</td>
+          <td>Receita da Dívida Ativa do IPTU</td>
+          
+           <td><div class="number">10,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">10,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.19.31.12.00.00</td>
+          <td>Receita da Dívida Ativa do ITBI</td>
+          
+           <td><div class="number">10,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">10,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.19.31.13.00.00</td>
+          <td>Receita da Dívida Ativa do ISS</td>
+          
+           <td><div class="number">10,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">10,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.19.31.99.00.00</td>
+          <td>Receita da Dívida Ativa de Outros Tributos</td>
+          
+           <td><div class="number">10,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.19.32.00.00.00</td>
+          <td>Receita da Dívida Ativa não Tributária</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.19.90.00.00.00</td>
+          <td>Receitas Diversas</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">114.122,41</div></td>
+          
+           <td><div class="number">355.490,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.20.00.00.00.00</td>
+          <td>RECEITAS DE CAPITAL</td>
+          
+           <td><div class="number">6.090.120,00</div></td>
+          
+           <td><div class="number">765.435,91</div></td>
+          
+           <td><div class="number">4.193.890,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.21.00.00.00.00</td>
+          <td>OPERAÇÕES DE CRÉDITO</td>
+          
+           <td><div class="number">1.000,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">1.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.21.10.00.00.00</td>
+          <td>Operações de Crédito Internas</td>
+          
+           <td><div class="number">500,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">500,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.21.14.00.00.00</td>
+          <td>Operações de Crédito Internas - Contratuais</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.21.14.01.00.00</td>
+          <td>Operações de Crédito Internas para Programas de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.21.14.99.00.00</td>
+          <td>Outras Operações de Crédito Internas - Contratuais</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.21.19.00.00.00</td>
+          <td>Outras Operações de Crédito Interna</td>
+          
+           <td><div class="number">500,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">500,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.21.20.00.00.00</td>
+          <td>Operações de Crédito Externas</td>
+          
+           <td><div class="number">500,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">500,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.21.23.00.00.00</td>
+          <td>Operações de Crédito Externas - Contratuais</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.21.23.01.00.00</td>
+          <td>Operações de Crédito Externas para Programas de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.21.23.99.00.00</td>
+          <td>Outras Operações de Crédito Externas - Contratuais</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.21.29.00.00.00</td>
+          <td>Outras Operações de Crédito Externas</td>
+          
+           <td><div class="number">500,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">500,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.22.00.00.00.00</td>
+          <td>ALIENAÇÃO DE BENS</td>
+          
+           <td><div class="number">50.500,00</div></td>
+          
+           <td><div class="number">6.000,00</div></td>
+          
+           <td><div class="number">250.500,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.23.00.00.00.00</td>
+          <td>AMORTIZAÇÃO DE EMPRÉSTIMOS</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.00.00.00.00</td>
+          <td>TRANSFERÊNCIAS DE CAPITAL</td>
+          
+           <td><div class="number">5.838.620,00</div></td>
+          
+           <td><div class="number">759.435,91</div></td>
+          
+           <td><div class="number">3.402.130,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.20.00.00.00</td>
+          <td>Transferências Intergovernamentais</td>
+          
+           <td><div class="number">700.500,00</div></td>
+          
+           <td><div class="number">268.944,41</div></td>
+          
+           <td><div class="number">396.370,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.21.00.00.00</td>
+          <td>Transferências da União</td>
+          
+           <td><div class="number">700.500,00</div></td>
+          
+           <td><div class="number">268.944,41</div></td>
+          
+           <td><div class="number">396.370,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.21.01.00.00</td>
+          <td>Transferências de Recursos do Sistema Único de Saúde - SUS</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.21.02.00.00</td>
+          <td>Transf. de Rec. Destinados a Prog. de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.21.37.00.00</td>
+          <td>Transferências a Consórcios Públicos</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.21.99.00.00</td>
+          <td>Outras Transferências da União</td>
+          
+           <td><div class="number">700.500,00</div></td>
+          
+           <td><div class="number">268.944,41</div></td>
+          
+           <td><div class="number">396.370,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.22.00.00.00</td>
+          <td>Transferências dos Estados</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.22.01.00.00</td>
+          <td>Transferências de Recursos do Sistema Único de Saúde - SUS</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.22.02.00.00</td>
+          <td>Transf. de Rec. Destinados a Prog. de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.22.37.00.00</td>
+          <td>Transferências a Consórcios Públicos</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.22.99.00.00</td>
+          <td>Outras Transferências dos Estados</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.23.00.00.00</td>
+          <td>Transferências dos Municípios</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.23.01.00.00</td>
+          <td>Transferências de Recursos Destinados a Programas de Saúde</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.23.02.00.00</td>
+          <td>Transf. de Rec. Destinados a Prog. de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.23.37.00.00</td>
+          <td>Transferências a Consórcios Públicos</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.23.99.00.00</td>
+          <td>Outras Transferências dos Municípios</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.30.00.00.00</td>
+          <td>Transferências de Instituições Privadas</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.30.02.00.00</td>
+          <td>Transf. de Instituições Privadas a Prog. de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.30.99.00.00</td>
+          <td>Outras Transferências de Instituições Privadas</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.40.00.00.00</td>
+          <td>Transferências do Exterior</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.40.02.00.00</td>
+          <td>Transferências do Exterior a Programas de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.40.99.00.00</td>
+          <td>Outras Transferências do Exterior</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.50.00.00.00</td>
+          <td>Transferências de Pessoas</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.50.02.00.00</td>
+          <td>Transferências de Pessoas a Programas de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.50.99.00.00</td>
+          <td>Outras Transferências de Pessoas</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.70.00.00.00</td>
+          <td>Transferências de Convênios</td>
+          
+           <td><div class="number">5.138.120,00</div></td>
+          
+           <td><div class="number">490.491,50</div></td>
+          
+           <td><div class="number">3.005.760,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.71.00.00.00</td>
+          <td>Transf. de Conv. da União e de suas Entidades</td>
+          
+           <td><div class="number">3.745.120,00</div></td>
+          
+           <td><div class="number">490.491,50</div></td>
+          
+           <td><div class="number">2.365.300,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.71.01.00.00</td>
+          <td>Transferências de Convênios da União para o Sistema Único de Saúde - SUS</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.71.02.00.00</td>
+          <td>Transf. de Conv. da União Dest. a Prog. de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.71.02.00.30</td>
+          <td>Prog. de Apoio ao Transp. Escolar para Educação Básica - CAMINHO DA ESCOLA</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.71.02.00.40</td>
+          <td>Programa Nacional de Reestruturação e Aparelhagem da Rede Escolar Publica de Educação Infantil PROINFANCIA</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.71.02.00.50</td>
+          <td>Programa de Apoio À Reestruturação da Rede Física Pública da Educação Básica  REESTFÍSICA</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.71.02.99.00</td>
+          <td>Outras Transferências de Recursos Destinados a Programas de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.71.99.00.00</td>
+          <td>Outras Transferências de Convênios da União</td>
+          
+           <td><div class="number">3.745.120,00</div></td>
+          
+           <td><div class="number">490.491,50</div></td>
+          
+           <td><div class="number">2.365.300,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.72.00.00.00</td>
+          <td>Transf. de Conv. dos Est. e do DF e de suas Entidades</td>
+          
+           <td><div class="number">1.393.000,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">640.460,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.72.01.00.00</td>
+          <td>Transferências de convênios dos Estados para o Sistema Único de Saúde - SUS</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.72.02.00.00</td>
+          <td>Transf. de Conv. dos Est. Dest. a Prog. de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.72.99.00.00</td>
+          <td>Outras Transferências de Convênios dos Estados</td>
+          
+           <td><div class="number">1.393.000,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">640.460,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.73.00.00.00</td>
+          <td>Transf. de Convênios dos Municípios e de suas Entidades</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.73.01.00.00</td>
+          <td>Transferências de Convênios dos Municípios Destinados a Programas de Saúde</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.73.02.00.00</td>
+          <td>Transf. de Conv. dos Muni. Dest a Prog. de Educação</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.73.99.00.00</td>
+          <td>Outras Transferências de Convênios dos Municípios</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.24.74.00.00.00</td>
+          <td>Transferências de Convênios de Instituições Privadas</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.24.75.00.00.00</td>
+          <td>Transferências de Convênios do Exterior</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.25.00.00.00.00</td>
+          <td>Outras Receitas de Capital</td>
+          
+           <td><div class="number">200.000,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">540.260,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.70.00.00.00.00</td>
+          <td>RECEITAS CORRENTES INTRA-ORÇAMENTÁRIAS</td>
+          
+           <td><div class="number">355.490,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.71.00.00.00.00</td>
+          <td>RECEITA TRIBUTÁRIA</td>
+          
+           <td><div class="number">355.490,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.71.10.00.00.00</td>
+          <td>Impostos</td>
+          
+           <td><div class="number">355.490,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.71.12.00.00.00</td>
+          <td>Impostos sobre o Patrimônio e a Renda</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.71.12.01.00.00</td>
+          <td>ITR</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.71.12.02.00.00</td>
+          <td>IPTU</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.71.12.04.00.00</td>
+          <td>Imposto s/ a Renda e Proventos de Qualquer Natureza</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.71.13.00.00.00</td>
+          <td>Impostos Sobre a Produção e a Circ.de Mercadorias</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.71.13.04.00.00</td>
+          <td>Imposto sobre a Circulação de Mercadorias</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.71.13.06.00.00</td>
+          <td>ISS/ISSQN</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.71.19.00.00.00</td>
+          <td>Outros Impostos - Operações Intra-Orçamentárias</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.71.20.00.00.00</td>
+          <td>Taxas - Operações Intra-Orçamentárias</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.72.00.00.00.00</td>
+          <td>Receita de Contribuições</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.73.00.00.00.00</td>
+          <td>Receita Patrimonial</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.75.00.00.00.00</td>
+          <td>Receita Industrial</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.76.00.00.00.00</td>
+          <td>Receitas de Serviços - Operações Intra-Orçamentárias</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.79.00.00.00.00</td>
+          <td>Outras Receitas Correntes - Operações Intra-Orçamentárias</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.79.11.00.00.00</td>
+          <td>Multas e Juros de Mora dos Tributos</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.79.13.00.00.00</td>
+          <td>Multas e Juros Mora da Dívida Ativa dos Tributos</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.79.31.00.00.00</td>
+          <td>Receita da Dívida Ativa Tributária</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.79.90.00.00.00</td>
+          <td>Receitas Correntes Diversas</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.80.00.00.00.00</td>
+          <td>RECEITAS DE CAPITAL - INTRA-ORÇAMENTÁRIAS</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.90.00.00.00.00</td>
+          <td>DEDUÇÕES DA RECEITA CORRENTE</td>
+          
+           <td><div class="number">989.340,00</div></td>
+          
+           <td><div class="number">1.287.419,31</div></td>
+          
+           <td><div class="number">1.391.649,60</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.91.11.20.10.00</td>
+          <td>Deduções da Receita do ITR</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.91.11.20.20.00</td>
+          <td>Deduções de Receita do IPTU</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.91.11.20.40.00</td>
+          <td>Deduções da Receita do IRRF</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.91.11.20.80.00</td>
+          <td>Deduções de Receita do ITBI</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.91.11.30.50.00</td>
+          <td>Deduções de Receita do ISS</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.97.21.01.00.00</td>
+          <td>DEDUÇÃO DAS REC. DAS RESULTANTES DAS TRANSF. DA UNIÃO</td>
+          
+           <td><div class="number">920.100,00</div></td>
+          
+           <td><div class="number">1.206.250,22</div></td>
+          
+           <td><div class="number">1.305.030,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.97.21.01.02.00</td>
+          <td>Dedução da Receita do FPM - FUNDEB e Redutor Financeiro (20%)</td>
+          
+           <td><div class="number">920.000,00</div></td>
+          
+           <td><div class="number">1.142.523,67</div></td>
+          
+           <td><div class="number">1.305.000,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.97.21.01.05.00</td>
+          <td>Dedução da Receita para Formação do FUNDEB - ITR (20%)</td>
+          
+           <td><div class="number">100,00</div></td>
+          
+           <td><div class="number">105,30</div></td>
+          
+           <td><div class="number">30,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.97.21.01.12.00</td>
+          <td>Dedução da Receita para a Formação do Fundeb - IPI Exportação (20%)</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">63.621,25</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.97.21.36.00.00</td>
+          <td>Dedução de Rec. para o FUNDEB - ICMS Desoneração - Lei Comp. 87/96 (20%)</td>
+          
+           <td><div class="number">200,00</div></td>
+          
+           <td><div class="number">139,34</div></td>
+          
+           <td><div class="number">130,20</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.97.22.01.00.00</td>
+          <td>DEDUÇÃO DAS REC. DE TRANSF. DOS ESTADOS</td>
+          
+           <td><div class="number">69.040,00</div></td>
+          
+           <td><div class="number">81.029,75</div></td>
+          
+           <td><div class="number">86.489,40</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.97.22.01.01.00</td>
+          <td>Dedução de Receita para a Formação do FUNDEB - ICMS (20%)</td>
+          
+           <td><div class="number">64.000,00</div></td>
+          
+           <td><div class="number">73.823,49</div></td>
+          
+           <td><div class="number">79.120,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.97.22.01.02.00</td>
+          <td>Dedução da Receita para a Formação do FUNDEB - IPVA (20%)</td>
+          
+           <td><div class="number">5.000,00</div></td>
+          
+           <td><div class="number">7.188,22</div></td>
+          
+           <td><div class="number">7.350,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowB">
+          <td>4.97.22.01.04.00</td>
+          <td>Dedução da Rec. p/ o FUNDEB - IPI - Exportação (20%)</td>
+          
+           <td><div class="number">40,00</div></td>
+          
+           <td><div class="number">18,04</div></td>
+          
+           <td><div class="number">19,40</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+          
+        <tr class="rowA">
+          <td>4.99.00.00.00.00</td>
+          <td>Outras Deduções da Receita</td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+           <td><div class="number">0,00</div></td>
+          
+        </tr>
+        
+        
+      
+    
+      
+        
+        
+		  
+		  <tr class="rowB">
+			<td colspan='2'><strong>RECEITA TOTAL</strong></td>
+			
+			<td>
+				<div class="number"><strong>19.148.570,00</strong></div>
+			</td>
+			
+			<td>
+				<div class="number"><strong>11.351.029,72</strong></div>
+			</td>
+			
+			<td>
+				<div class="number"><strong>17.375.860,00</strong></div>
+			</td>
+			
+		  </tr>
+		 
+      
+    
+    </table>
+  </div>
+  
+</div>
+
+
+
+
+
+  
+
+
+
+    
+
+
+<!-- InstanceEndEditable --></div>
+
+<div style="clear: both;"> </div>
+
+<div id="footer">
+    FNDE - FUNDO NACIONAL DE DESENVOLVIMENTO DA EDUCA&Ccedil;&Atilde;O<br/>
+    Vers&atilde;o: 07.06.2018#352913
+</div>
+
+<!-- Piwik -->
+<script type="text/javascript">
+    var _paq = _paq || [];
+    //        _paq.push(["setCookieDomain", "*.fnde.gov.br"]);
+    _paq.push(["trackPageView"]);
+    _paq.push(["enableLinkTracking"]);
+    var pkBaseURL = "http://estatisticas.fnde.gov.br/";
+    var pkSiteId = "20";
+
+    (function () {
+        var page_load_end = new Date();
+        var load_time;
+        if (typeof(pkPageLoadStart) != 'undefined' && pkPageLoadStart != null){
+            load_time = page_load_end.getTime() - pkPageLoadStart.getTime();
+        } else {
+            load_time=-1;
+        }
+        _paq.push(["setTrackerUrl", pkBaseURL + "piwik.php"]);
+        _paq.push(["setSiteId", pkSiteId]);
+        _paq.push(['setCustomVariable', 1, 'PageTime', load_time, 'page']);
+        var d = document, g = d.createElement("script"), s = d.getElementsByTagName("script")[0];
+        g.type = "text/javascript";
+        g.defer = true;
+        g.async = true;
+        g.src = pkBaseURL + "piwik.js";
+        s.parentNode.insertBefore(g, s);
+    })();
+</script>
+<noscript><p><img src="//estatisticas.fnde.gov.br/piwik.php?idsite=20" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+
+</body>
+<!-- InstanceEnd -->
+</html>
